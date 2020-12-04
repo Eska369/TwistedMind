@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public Inventory inventory;
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -36,5 +38,14 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity *Time.deltaTime);
         
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        if(item!= null)
+        {
+            inventory.AddItem(item);
+        }
     }
 }
