@@ -6,11 +6,8 @@ using System;
 public class Inventory : MonoBehaviour
 {
     private const int SLOTS = 9;
-
     private List<IInventoryItem> mItems = new List<IInventoryItem>();
-
     public event EventHandler<InventoryEventArgs> ItemAdded;
-
     public void AddItem(IInventoryItem item)
     {
         if(mItems.Count < SLOTS)
