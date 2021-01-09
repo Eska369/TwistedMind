@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public Inventory inventory;
+
 
     void Update()
     {
@@ -40,12 +40,5 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        if(item!= null)
-        {
-            inventory.AddItem(item);
-        }
-    }
+
 }
